@@ -122,13 +122,14 @@ int main(int argc, char **argv) {
     printf("PASSED\n");
     numPassed++;
   }
-  
+
   r = 100, g = 39, b = 40;
-  printf("TESTING: toGrayScaleAverage(%d,%d,%d): ", r, g, b);
+  printf("TESTING: toGrayScaleAverage(%d,%d,%d): \n", r, g, b);
   result = toGrayScaleAverage(r, g, b);
   //TODO: this test case will fail, why?
+  //because the if statement value doesn't math the expected value
   if(result != 60) {
-    printf("FAILED: toGrayScaleAverage returned %d, expected 85\n", result);
+    printf("FAILED: toGrayScaleAverage returned %d, expected 60\n", result);
     numFailed++;
   } else {
     printf("PASSED\n");
@@ -136,6 +137,56 @@ int main(int argc, char **argv) {
   }
 
   //TODO: add your test cases here
+  r = 100, g = 200, b = 32;
+  printf("TESTING: toGrayScaleLightness(%d,%d,%d): \n", r, g, b);
+  result = toGrayScaleLightness(r, g, b);
+  if(result != 116){
+    printf("FAILED: toGrayScaleLightness returned %d, expected 116\n", result);
+    numFailed++;
+  } else {
+    printf("PASSED\n");
+    numPassed++;
+  }
+
+  printf("TESTING: toGrayScaleLuminosity(%d,%d,%d): \n", r, g, b);
+  result = toGrayScaleLuminosity(r, g, b);
+  if(result != 167){
+    printf("FAILED: toGrayScaleLuminosity returned %d, expected 167\n", result);
+    numFailed++;
+  } else{
+    printf("PASSED\n");
+    numPassed++;
+  }
+
+  printf("TESTING: toSepiaRed(%d,%d,%d): \n", r, g, b);
+  result = toSepiaRed(r, g, b);
+  if(result != 199){
+    printf("FAILED: toSepiaRed returned %d, expected 199\n", result);
+    numFailed++;
+  } else {
+    printf("PASSED\n");
+    numPassed++;
+  }
+
+  printf("TESTING: toSepiaGreen(%d,%d,%d): \n", r, g, b);
+  result = toSepiaGreen(r, g, b);
+  if(result != 177){
+    printf("FAILED: toSepiaGreen returned %d, expected 177\n", result);
+    numFailed++;
+  } else {
+    printf("PASSED\n");
+    numPassed++;
+  }
+
+  printf("TESTING: toSepiaBlue(%d,%d,%d): \n", r, g, b);
+  result = toSepiaBlue(r, g, b);
+  if(result != 138){
+    printf("FAILED: toSepiaBlue returned %d, expected 138\n", result);
+    numFailed++;
+  } else {
+    printf("PASSED\n");
+    numPassed++;
+  }
 
   printf("Number Test Cases Passed: %6d\n", numPassed);
   printf("Number Test Cases Failed: %6d\n", numFailed);
